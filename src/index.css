@@ -1,13 +1,63 @@
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.height-100 {
+  height: 100%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.avatar-uploader,
+.avatar-uploader img,
+.avatar-uploader .ant-upload {
+  width: 100% !important;
+}
+
+/* hide time picker scrollbars */
+ul.ant-picker-time-panel-column::-webkit-scrollbar {
+  width: 0px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.modal-ok-btn {
+  float: left;
+  margin-right: 4px;
+}
+
+.modal-no-btn {
+  float: right;
+  margin-left: 4px;
+}
+
+.hidden-action {
+  visibility: hidden;
+}
+
+.ql-editor,
+.ql-editor * {
+  color: black;
+}
+
+hr {
+  border: #dadada solid 1px;
+  border-top: 0;
+}
+
+.vl {
+  border-right: 1px solid #dadada;
 }
