@@ -48,6 +48,7 @@
     "react/no-array-index-key": "off",
     "object-shorthand": "off",
     "react/no-this-in-sfc": "off",
-    "camelcase": "off",
+    "react/jsx-curly-newline": "off",
+    "camelcase": "off"
   }
 }
