@@ -7,6 +7,7 @@ import { AuthRoute } from '../../router/AuthRoute';
 import { MyProducts, Products } from '../product';
 import { UserAPi } from '../../api/users/user';
 import { RegisterResponse, UserTypeEnum } from '../../types/user';
+import { MyTransactions } from '../transactions';
 
 const { Sider, Content } = Layout;
 const userAPi = new UserAPi();
@@ -39,6 +40,7 @@ export function Dashboard() {
                 {currentUser?.user_type === UserTypeEnum.SUPPLIER && (
                   <AuthRoute path="/dashboard/my-products" Component={MyProducts} />
                 )}{' '}
+                <AuthRoute path="/dashboard/my-transactions" Component={MyTransactions} />
               </Switch>
             </Suspense>
           </Content>

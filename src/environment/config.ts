@@ -13,6 +13,9 @@ const config = {
     list: '/api/products/',
     my: '/api/products/my-products/',
   },
+  transaction: {
+    my: '/api/transactions/my-transactions/',
+  },
 };
 
 export default config;

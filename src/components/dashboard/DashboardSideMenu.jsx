@@ -18,6 +18,13 @@ const routes = [
     title: 'My Products',
     forType: ['Supplier'],
   },
+  {
+    key: 'my-transactions',
+    href: '/dashboard/my-transactions',
+    icon: TagTwoTone,
+    title: 'Transactions History',
+    forType: ['Supplier', 'Customer', 'Admin'],
+  },
 ];
 
 export function DashboardSideMenu({ toggleMenu, collapsed, currentUser }) {
