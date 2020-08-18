@@ -1,0 +1,25 @@
+@import './src/variables.scss';
+
+.product-list {
+  padding: 20px 0;
+  .product-title {
+    margin-bottom: 20px;
+  }
+}
+
+.product-cards {
+  .card {
+    margin: 10px;
+    @include transition-all;
+    &:hover {
+      @include shadow-box-hover;
+    }
+  }
+}
+
+.product-name {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 1.5rem;
+}

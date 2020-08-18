@@ -1,4 +1,54 @@
+// Breakpoints
 $sm: 576px;
 $md: 768px;
 $lg: 992px;
 $xl: 1200px;
+
+// Colors
+$primary: #0580dc;
+$secondry: #02cb9b;
+$third: #0d1c3f;
+
+@mixin transition-all() {
+  -webkit-transition: all 0.35s ease;
+  -moz-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+}
+
+@mixin shadow-box {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+}
+@mixin shadow-box-hover() {
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+@mixin background-grediant() {
+  background-image: linear-gradient(to right, $primary 0%, $secondry 100%);
+}
+@mixin background-grediant-hover() {
+  background-image: linear-gradient(to left, $primary 0%, $secondry 100%);
+}
+
+button.btn {
+  padding: 5px 20px;
+  border: none;
+  @include border-radius(30px);
+  @include background-grediant;
+  .btn-primary {
+    @include background-grediant;
+  }
+  &:hover {
+    @include background-grediant-hover;
+    @include shadow-box-hover;
+  }
+}
