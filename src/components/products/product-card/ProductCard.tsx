@@ -30,7 +30,7 @@ export function ProductCard({ name, price, image }: Prop) {
               <p>{price}</p>
             </Col>
           </Row>
-          <Button color="primary">Buy Now</Button>
+          <Button color="primary">Add To Cart</Button>
         </CardBody>
       </Card>
     </Col>

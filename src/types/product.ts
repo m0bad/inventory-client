@@ -7,3 +7,9 @@ export interface IProduct {
   created_at: Date;
   updated_at: Date;
 }
+
+export interface IProductPayload {
+  name: string;
+  price: number;
+  image: string;
+}

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { IProduct } from '../../types/product';
+import { IProduct, IProductPayload } from '../../types/product';
 import { ProductsApi } from '../../api/products/product';
 
 const productsApi = new ProductsApi();
@@ -20,6 +20,10 @@ export const fetchProducts = createAsyncThunk('products/fetch', async () => {
 
 export const fetchMyProducts = createAsyncThunk('my-products/fetch', async () => {
   return productsApi.getMyProducts();
+});
+
+export const createProduct = createAsyncThunk('products/create', async (payload: IProductPayload) => {
+  return productsApi.createProduct(payload);
 });
 
 const productsSlice = createSlice({
@@ -54,13 +58,24 @@ const productsSlice = createSlice({
     [fetchMyProducts.rejected.type]: state => {
       return { ...state, loading: false, error: true };
     },
+    [createProduct.pending.type]: state => {
+      return { ...state, loading: true, error: false };
+    },
+    [createProduct.fulfilled.type]: state => {
+      return {
+        ...state,
+        loading: false,
+        error: null,
+      };
+    },
+    [createProduct.rejected.type]: state => {
+      return { ...state, loading: false, error: true };
+    },
   },
 });
 
 // @ts-ignore
 export const productsSelectors = productsAdapter.getSelectors(state => state.products);
-// @ts-ignore
-// export const myProductsSelectors = productsAdapter.getSelectors(state => state.myProducts);
 
 // @ts-ignore
 export default productsSlice.reducer;
