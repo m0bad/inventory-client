@@ -4,6 +4,7 @@ import { Switch } from 'react-router-dom';
 import { DashboardHeader, DashboardSideMenu } from '../../components/dashboard';
 import { LoadingIndicator } from '../../components/loading-indicator';
 import { AuthRoute } from '../../router/AuthRoute';
+import { Products } from '../product';
 
 const { Sider, Content } = Layout;
 
@@ -25,7 +26,7 @@ export function Dashboard() {
           <Content style={{ padding: '0 16px' }}>
             <Suspense fallback={<LoadingIndicator />}>
               <Switch>
-                <AuthRoute path="/dashboard/products" component={null} />
+                <AuthRoute path="/dashboard/products" Component={Products} />
               </Switch>
             </Suspense>
           </Content>

@@ -1,7 +1,7 @@
 export enum AuthRoutes {
   dashboard = '/dashboard',
-  transactions = '/transactions',
-  products = '/products',
+  transactions = '/dashboard/transactions',
+  products = '/dashboard/products',
 }
 
 export enum NonAuthRoutes {
