@@ -5,6 +5,9 @@ const config = {
     loginEndpoint: 'api/user/token',
     registerEndpoint: 'api/user/create',
   },
+  products: {
+    list: '/api/products/',
+  },
 };
 
 export default config;

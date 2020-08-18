@@ -16,8 +16,7 @@ export class ProtectedHttpClient extends HttpClient {
   };
 
   private _handleRequest = (axiosConfig: AxiosRequestConfig) => {
-    axiosConfig.headers.Authorization = 'Token secret-token';
-
-    return config;
+    axiosConfig.headers.Authorization = `Token ${localStorage.getItem(config.auth.localStorageKey)}`;
+    return axiosConfig;
   };
 }
