@@ -1,0 +1,26 @@
+@import 'variables.scss';
+
+$logo-width: 130px;
+$logo-width-sm: 100px;
+
+.loading-page {
+  min-height: 100vh;
+  position: relative;
+}
+
+.loader-icon {
+  display: block;
+  position: absolute;
+  height: auto;
+  margin: auto;
+  width: $logo-width;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: $sm) {
+  .loader-icon {
+    width: $logo-width-sm;
+  }
+}
