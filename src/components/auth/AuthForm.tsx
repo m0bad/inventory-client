@@ -1,6 +1,6 @@
-import { Alert, Card, Select } from 'antd';
+import { Alert, Card } from 'antd';
 import { Formik } from 'formik';
-import { Form, Input, SubmitButton } from 'formik-antd';
+import { Form, Input, SubmitButton, Select } from 'formik-antd';
 import React, { useMemo, useCallback } from 'react';
 import * as Yup from 'yup';
 import { LoginPayload, RegisterPayload, UserTypeEnum } from '../../types/user';
@@ -76,7 +76,7 @@ export function AuthForm({ onSubmit, error, type }: Props) {
                   <Input name="name" type="text" placeholder="Name" />
                 </Form.Item>
                 <Form.Item name="user_type">
-                  <Select placeholder="Select a Type" defaultValue={UserTypeEnum.CUSTOMER}>
+                  <Select name="user_type" placeholder="Select a Type" defaultValue={UserTypeEnum.CUSTOMER}>
                     {userTypeOptions.map(({ text, value }) => (
                       <Option key={value} value={value}>
                         {text}

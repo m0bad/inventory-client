@@ -5,6 +5,10 @@ const config = {
     loginEndpoint: 'api/user/token',
     registerEndpoint: 'api/user/create',
   },
+  user: {
+    localStorageKey: 'user',
+    currentUser: 'api/user/me/',
+  },
   products: {
     list: '/api/products/',
   },

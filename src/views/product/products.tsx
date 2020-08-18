@@ -16,7 +16,7 @@ export const Products = () => {
   return (
     <ProductsContainer title="Products">
       {products.map(product => (
-        <ProductCard {...product} />
+        <ProductCard {...product} key={product.id} />
       ))}
     </ProductsContainer>
   );

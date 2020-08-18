@@ -36,4 +36,5 @@ export interface AuthState {
   loggedIn: boolean;
   loading: boolean;
   error: boolean;
+  currentUser: RegisterResponse | null;
 }

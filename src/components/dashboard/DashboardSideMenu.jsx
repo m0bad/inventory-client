@@ -1,21 +1,37 @@
-import { MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined } from '@ant-design/icons';
+import { MenuFoldOutlined, MenuUnfoldOutlined, GoldTwoTone, TagTwoTone } from '@ant-design/icons';
 import { Menu } from 'antd';
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+import { UserAPi } from '../../api/users/user';
+
+const userAPi = new UserAPi();
 
 const routes = [
   {
     key: 'products',
     href: '/dashboard/products',
-    icon: UserOutlined,
+    icon: GoldTwoTone,
     title: 'Products',
+    forType: ['Supplier', 'Customer', 'Admin'],
+  },
+  {
+    key: 'my-products',
+    href: '/dashboard/my-products',
+    icon: TagTwoTone,
+    title: 'My Products',
+    forType: ['Supplier'],
   },
 ];
 
 export function DashboardSideMenu({ toggleMenu, collapsed }) {
   const history = useHistory();
   const location = useLocation();
+  const [currentUser, setCurrentUser] = useState(null);
 
+  useEffect(() => {
+    const user = userAPi.getUser();
+    setCurrentUser(user);
+  }, []);
   const selectedKey = useMemo(() => {
     const selectedRoute = routes.find(route => route.href === location.pathname);
     return selectedRoute?.key;
@@ -23,18 +39,21 @@ export function DashboardSideMenu({ toggleMenu, collapsed }) {
 
   const menuItems = useMemo(
     () =>
-      routes.map(route => (
-        <Menu.Item
-          key={route.key}
-          onClick={() => {
-            history.push(route.href);
-          }}
-        >
-          <route.icon />
-          <span>{route.title}</span>
-        </Menu.Item>
-      )),
-    [history],
+      routes.map(
+        route =>
+          route.forType.includes(currentUser?.user_type) && (
+            <Menu.Item
+              key={route.key}
+              onClick={() => {
+                history.push(route.href);
+              }}
+            >
+              <route.icon />
+              <span>{route.title}</span>
+            </Menu.Item>
+          ),
+      ),
+    [history, currentUser],
   );
 
   return (

@@ -42,4 +42,5 @@ const productsSlice = createSlice({
 // @ts-ignore
 export const productsSelectors = productsAdapter.getSelectors(state => state.products);
 
+// @ts-ignore
 export default productsSlice.reducer;
