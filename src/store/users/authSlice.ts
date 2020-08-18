@@ -21,9 +21,13 @@ export const registerUser = createAsyncThunk('auth/register', async (payload: Re
 });
 
 export const loginUser = createAsyncThunk('auth/login', async (payload: LoginPayload) => {
-  const response = await client.loginUser(payload);
-  client.setToken(response.token);
-  return response.token;
+  try {
+    const response = await client.loginUser(payload);
+    client.setToken(response.token);
+    return response.token;
+  } catch (err) {
+    throw new Error(`ERROR IN loginUser: ${err}`);
+  }
 });
 
 export const logoutUser = createAsyncThunk('auth/logout', async () => {
