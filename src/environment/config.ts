@@ -11,6 +11,7 @@ const config = {
   },
   products: {
     list: '/api/products/',
+    my: '/api/products/my-products/',
   },
 };
 

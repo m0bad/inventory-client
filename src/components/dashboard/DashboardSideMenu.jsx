@@ -1,10 +1,7 @@
-import { MenuFoldOutlined, MenuUnfoldOutlined, GoldTwoTone, TagTwoTone } from '@ant-design/icons';
+import { GoldTwoTone, MenuFoldOutlined, MenuUnfoldOutlined, TagTwoTone } from '@ant-design/icons';
 import { Menu } from 'antd';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { UserAPi } from '../../api/users/user';
-
-const userAPi = new UserAPi();
 
 const routes = [
   {
@@ -23,15 +20,10 @@ const routes = [
   },
 ];
 
-export function DashboardSideMenu({ toggleMenu, collapsed }) {
+export function DashboardSideMenu({ toggleMenu, collapsed, currentUser }) {
   const history = useHistory();
   const location = useLocation();
-  const [currentUser, setCurrentUser] = useState(null);
 
-  useEffect(() => {
-    const user = userAPi.getUser();
-    setCurrentUser(user);
-  }, []);
   const selectedKey = useMemo(() => {
     const selectedRoute = routes.find(route => route.href === location.pathname);
     return selectedRoute?.key;

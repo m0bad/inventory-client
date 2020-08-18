@@ -11,10 +11,15 @@ const initialState = productsAdapter.getInitialState({
   loading: false,
   error: null,
   products: [],
+  myProducts: [],
 });
 
 export const fetchProducts = createAsyncThunk('products/fetch', async () => {
   return productsApi.getAllProducts();
+});
+
+export const fetchMyProducts = createAsyncThunk('my-products/fetch', async () => {
+  return productsApi.getMyProducts();
 });
 
 const productsSlice = createSlice({
@@ -36,11 +41,26 @@ const productsSlice = createSlice({
     [fetchProducts.rejected.type]: state => {
       return { ...state, loading: false, error: true };
     },
+    [fetchMyProducts.pending.type]: state => {
+      return { ...state, loading: true, error: false };
+    },
+    [fetchMyProducts.fulfilled.type]: (state, { payload }) => {
+      return {
+        ...productsAdapter.setAll({ ...state }, payload),
+        loading: false,
+        error: null,
+      };
+    },
+    [fetchMyProducts.rejected.type]: state => {
+      return { ...state, loading: false, error: true };
+    },
   },
 });
 
 // @ts-ignore
 export const productsSelectors = productsAdapter.getSelectors(state => state.products);
+// @ts-ignore
+// export const myProductsSelectors = productsAdapter.getSelectors(state => state.myProducts);
 
 // @ts-ignore
 export default productsSlice.reducer;

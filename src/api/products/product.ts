@@ -8,4 +8,6 @@ export class ProductsApi extends ProtectedHttpClient {
   }
 
   public getAllProducts = () => this.instance.get<IProduct[]>(config.products.list);
+
+  public getMyProducts = () => this.instance.get<IProduct[]>(config.products.my);
 }
