@@ -1,4 +1,4 @@
-import { Col, Layout, Row } from 'antd';
+import { Button, Col, Layout, Row } from 'antd';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -36,6 +36,9 @@ export function Login() {
         <Row justify="center" align="middle" className="height-100">
           <Col span={8}>
             <AuthForm type="login" onSubmit={onLogin} error={error} />
+            <Button type="link" block onClick={() => history.push('/register')}>
+              Sign up
+            </Button>
           </Col>
         </Row>
       </Content>
