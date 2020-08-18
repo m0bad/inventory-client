@@ -18,12 +18,7 @@
     "react/jsx-props-no-spreading": "off",
     "react/forbid-prop-types": "off",
     "no-param-reassign": "off",
-    "no-underscore-dangle": [
-      "error",
-      {
-        "allow": ["_id", "__addFilter"]
-      }
-    ],
+    "no-underscore-dangle": "off",
     "react/jsx-one-expression-per-line": "off",
     "import/prefer-default-export": "off",
     "react/jsx-filename-extension": "off",
@@ -52,6 +47,7 @@
     "no-empty": "off",
     "react/no-array-index-key": "off",
     "object-shorthand": "off",
-    "react/no-this-in-sfc": "off"
+    "react/no-this-in-sfc": "off",
+    "camelcase": "off",
   }
 }
