@@ -21,12 +21,6 @@ export function ProductsTable({ products }: Porps) {
         width: '20%',
       },
       {
-        key: 'supplier',
-        title: 'Supplier Id',
-        dataIndex: 'supplier_id',
-        width: '10%',
-      },
-      {
         key: 'price',
         title: 'Price',
         dataIndex: 'price',
@@ -36,7 +30,7 @@ export function ProductsTable({ products }: Porps) {
         key: 'image',
         title: 'image',
         dataIndex: 'image',
-        width: '10%',
+        width: '20%',
       },
       {
         key: 'createdAt',
